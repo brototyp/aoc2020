@@ -33,5 +33,23 @@ let lines = string.split(separator: "\n")
 //}
 //
 //print("\(newResult.count)")
+// I basically changed the inputs, collected the counts and manually calculated the product
 // => 727923200
+
+
+// Better approach?
+// Pro: Once we prepared the field, we can check every field by itself if it is on the path
+// Con: We need to loop over every single element instead of just every single line
+let slopes = [(x: 1, y: 1),(x: 3, y: 1),(x: 5, y: 1),(x: 7, y: 1),(x: 1, y: 2)]
+
+let fields = lines.enumerated().flatMap { l in Array(l.element).enumerated().map { f in (x: f.offset, y: l.offset, e: f.element) } }
+
+let treeCounts = slopes.map { rule in
+    fields.filter { $0.y % rule.y == 0 && (rule.x * ($0.y / rule.y)) % lines.first!.count == $0.x }
+        .filter { $0.e == "#" }
+        .count
+}
+let product = treeCounts.reduce(1) { $0 * $1 }
+
+print("\(product)")
 
