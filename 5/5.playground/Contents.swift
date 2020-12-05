@@ -6,9 +6,7 @@ let reader = try! LineFileReader(url)
 
 // part 1
 let ids = Array(reader).map { s -> Int in
-    let r = s.prefix(7).reduce(0) { ($0 << 1) + ($1 == "B" ? 1 : 0) }
-    let c = s.suffix(3).reduce(0) { ($0 << 1) + ($1 == "R" ? 1 : 0) }
-    return r * 8 + c
+    s.reduce(0) { ($0 << 1) + (Array("BR").contains($1) ? 1 : 0) }
 }
 print(ids.max()!)
 // 991
