@@ -16,9 +16,13 @@ public class LineFileReader: IteratorProtocol {
         let bytesRead = getline(&lineByteArrayPointer, &lineCap, filePointer)
 
         if bytesRead > 0 {
-            return String.init(cString:lineByteArrayPointer!)
+            return String(String.init(cString:lineByteArrayPointer!).dropLast())
         }
 
         return nil
     }
+}
+
+extension LineFileReader: LazySequenceProtocol {
+
 }
