@@ -1,6 +1,6 @@
 import Foundation
 
-public class LineFileReader: IteratorProtocol {
+public class FileReader: IteratorProtocol {
     deinit {
         fclose(filePointer)
     }
@@ -8,6 +8,11 @@ public class LineFileReader: IteratorProtocol {
     private let filePointer: UnsafeMutablePointer<FILE>
     public init(_ url: URL) throws {
         filePointer = fopen(url.path,"r")
+    }
+
+    public convenience init(bundleFilename: String) throws {
+        let url = Bundle.main.url(forResource: bundleFilename, withExtension: nil)!
+        try self.init(url)
     }
 
     public func next() -> String? {
@@ -21,8 +26,10 @@ public class LineFileReader: IteratorProtocol {
 
         return nil
     }
+
+    public func allLines() -> [String] {
+        Array(self)
+    }
 }
 
-extension LineFileReader: LazySequenceProtocol {
-
-}
+extension FileReader: LazySequenceProtocol { }

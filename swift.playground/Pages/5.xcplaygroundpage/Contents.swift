@@ -2,7 +2,7 @@ import UIKit
 
 let url = Bundle.main.url(forResource: "input", withExtension: "txt")!
 //let url = Bundle.main.url(forResource: "test-input-1", withExtension: "txt")!
-let reader = try! LineFileReader(url)
+let reader = try! FileReader(url)
 
 // part 1
 let ids = Array(reader).map { s -> Int in

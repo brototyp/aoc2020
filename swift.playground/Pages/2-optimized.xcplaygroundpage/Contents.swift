@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 struct Password {
     let min: Int
@@ -57,7 +57,7 @@ extension NSTextCheckingResult {
 }
 
 
-let fileReader = try! LineFileReader(Bundle.main.url(forResource: "input", withExtension: "txt")!)
+let fileReader = try! FileReader(Bundle.main.url(forResource: "input", withExtension: "txt")!)
 
 var countRuleOne = 0
 var countRuleTwo = 0
