@@ -34,29 +34,6 @@ extension Password {
     }
 }
 
-extension NSTextCheckingResult {
-    func int(at match: Int, in string: String) -> Int? {
-        guard let range = Range(range(at: match), in: string),
-            let int = Int(string[range]) else {
-            return nil
-        }
-        return int
-    }
-    func string(at match: Int, in string: String) -> String? {
-        guard let range = Range(range(at: match), in: string) else {
-            return nil
-        }
-        return String(string[range])
-    }
-    func character(at match: Int, in string: String) -> Character? {
-        guard let string = self.string(at: match, in: string) else {
-            return nil
-        }
-        return string.first
-    }
-}
-
-
 let fileReader = try! FileReader(Bundle.main.url(forResource: "input", withExtension: "txt")!)
 
 var countRuleOne = 0
