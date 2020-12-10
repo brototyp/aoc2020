@@ -10,7 +10,7 @@ let regex = NSRegularExpression(pattern: "^(.*) bags contain(?:(?: (\\d) (.*?) b
 // muted lavender bags contain 5 dull brown bags, 4 pale maroon bags, 2 drab orange bags.
 // Is parsed into:
 // allRules["muted lavender"] = ["dull brown": 5, "pale maroon": 4, "drap orange": 2]
-let allRules = fileReader.reduce(into: [String, [String: Int]]()) { map, rule in
+let allRules = fileReader.reduce(into: Dictionary<String, [String: Int]>()) { map, rule in
     let match = regex.firstMatch(in: rule)
     let key = match.string(at: 1, in: rule)!
     let matches = match.matches(in: rule, from: 2)
@@ -41,4 +41,3 @@ func bags(in bag: String) -> Int {
 
 print(bags(in: "shiny gold"))
 // 57282
-
