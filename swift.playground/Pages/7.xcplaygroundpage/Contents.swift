@@ -20,16 +20,16 @@ let allRules = fileReader.reduce(into: Dictionary<String, [String: Int]>()) { ma
 }
 
 // part 1
-let memoizeContainsShinyGold = memoize(containsShinyGold)
+let memoizedContainsShinyGold = memoize(containsShinyGold)
 func containsShinyGold(_ checking: String) -> Bool {
     let containing = allRules[checking]!
     if containing.keys.contains("shiny gold") {
         return true
     }
-    return containing.keys.reduce(false) { $0 || memoizeContainsShinyGold($1) }
+    return containing.keys.reduce(false) { $0 || memoizedContainsShinyGold($1) }
 }
 
-let containing = allRules.keys.filter { memoizeContainsShinyGold($0) }
+let containing = allRules.keys.filter { memoizedContainsShinyGold($0) }
 print(containing.count)
 // 248
 

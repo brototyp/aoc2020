@@ -22,7 +22,6 @@ for i in preambleSize..<numbers.count {
 
 
 // step 2
-
 let searchedSum = 23278925
 for i in 0..<numbers.count {
     var slice = numbers[i...i]
