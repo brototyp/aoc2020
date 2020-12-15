@@ -11,7 +11,7 @@ import Foundation
 
 let input = [2,1,10,11,0,6]
 
-print(day_15(for: input, rounds: 2020))
+//print(day_15(for: input, rounds: 2020))
 // 232
 
 print(day_15(for: input, rounds: 30000000))
