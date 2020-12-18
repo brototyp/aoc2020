@@ -3,12 +3,12 @@ import Foundation
 //let time = 939
 //let buses = [7,13,nil,nil,59,nil,31,19]
 
-let time = 1000340
+//let time = 1000340
 let buses = [13,nil,nil,nil,nil,nil,nil,37,nil,nil,nil,nil,nil,401,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,17,nil,nil,nil,nil,19,nil,nil,nil,23,nil,nil,nil,nil,nil,29,nil,613,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,41]
-
-// part 1
-let bus = buses.compactMap { $0 }.sorted { $0 - time % $0 < $1 - time % $1 }.first!
-print(bus * (bus - time % bus))
+//
+//// part 1
+//let bus = buses.compactMap { $0 }.sorted { $0 - time % $0 < $1 - time % $1 }.first!
+//print(bus * (bus - time % bus))
 // 136
 
 
