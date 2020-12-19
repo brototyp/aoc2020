@@ -7,6 +7,11 @@ public extension NSRegularExpression {
     func firstMatch(in string: String) -> NSTextCheckingResult {
         firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.utf16.count))!
     }
+    func matches(in string: String) -> [String] {
+        matches(in: string).compactMap {
+            $0.string(at: 0, in: string)
+        }
+    }
 }
 
 public extension NSTextCheckingResult {

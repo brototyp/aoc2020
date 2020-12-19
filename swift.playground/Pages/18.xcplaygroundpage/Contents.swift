@@ -1,6 +1,6 @@
 import Foundation
 
-let lines = try! FileReader(bundleFilename: "input.txt")
+let lines = try! FileReader(bundleFilename: "example.txt")
 
 let parenthesesRegex = NSRegularExpression(pattern: "\\((?:[^)(]+|\\((?:[^)(]+|\\([^)(]*\\))*\\))*\\)")
 func eval(_ equation: String) -> Int {
@@ -42,5 +42,5 @@ func eval2(_ equation: String) -> Int {
     }
 }
 
-print(lines.map { eval2($0) }.reduce(0,+))
+//print(lines.map { eval2($0) }.reduce(0,+))
 // 88782789402798
